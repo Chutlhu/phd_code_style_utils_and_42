@@ -30,7 +30,7 @@ The installation of the above package will install the following dependency pack
 - **mongodb-org-shell**: This provides a shell to MongoDB
 - **mongodb-org-tools**: MongoDB tools used for export, dump, import e.t.c
 
-### Mount the partition for the data
+### Mount the partition for the data (OLD)
 mount the network partition in Nephila
 ```bash
 # mount nas4.irisa.fr:/mongoDB_panama/mongoDB_panama /mnt/nephila/
@@ -58,6 +58,16 @@ Check the configuration
 ```bash
 $ chkconfig mongod on
 ```
+
+### ATTENTION: DB-PATH
+providing a new path in the /etc/mongod.config file makes it false. So in the end the following worked:
+```bash
+$ mkdir -p /data/db/
+$ mount nas4.irisa.fr:/mongoDB_panama/mongoDB_panama /data/db
+$ chown -R mongod:mongod /data/db
+$ chmod -R 775 /data/db
+```
+
 ### Start Mongo server
 When all is set, start and set mongod service to start on boot.
 ```bash
