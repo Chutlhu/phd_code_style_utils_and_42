@@ -54,6 +54,10 @@ journal:
   enabled: true
 ...
 ```
+Check the configuration
+```bash
+$ chkconfig mongod on
+```
 ### Start Mongo server
 When all is set, start and set mongod service to start on boot.
 ```bash
